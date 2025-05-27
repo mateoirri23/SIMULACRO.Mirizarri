@@ -1,17 +1,27 @@
 
 def cargar_pacientes(lista_pacientes):
+    ''' """
+    Permite al usuario ingresar datos de múltiples pacientes y los agrega
+    a una lista anidada (arreglo bidimensional).
+
+    Para cada paciente se solicitan los siguientes datos:
+    - Número de historia clínica (entero)
+    - Nombre (cadena de texto)
+    - Edad (entero)
+    - Diagnóstico (cadena de texto)
+    - Cantidad de días hospitalizado (entero)'''
     cantidad_pacientes = int(input("Ingrese la cantidad de pacientes ingresados: ")) 
 
     for i in range(cantidad_pacientes): 
         numero_historia_clinica = int(input("Ingrese el número de historia clínica del paciente: "))
-        nombre_del_paciente = input("Ingrese el nombre del paciente: ") 
+        nombre_del_paciente = str(input("Ingrese el nombre del paciente: ")) 
         edad_paciente = int(input("Ingrese la edad del paciente: ")) 
         diagnostico = str(input("Ingrese el diagnostico del paciente: ")) 
         cant_dias_hospitalizado = int(input("Ingrese la cantidad de días hospitalizado: "))
 
         pacientes = [numero_historia_clinica, nombre_del_paciente, edad_paciente, diagnostico, cant_dias_hospitalizado]
         # Aquí se crea una lista con los datos del paciente
-        # y se agrega al inventario
+        # y se agrega al listado de pacientes
         lista_pacientes += [pacientes] 
         print("Paciente cargado correctamente.") 
 
@@ -19,6 +29,16 @@ def cargar_pacientes(lista_pacientes):
 
 
 def imprimir_pacientes(lista_pacientes):
+    '''"""
+    Imprime en pantalla todos los datos de los pacientes almacenados
+    en la lista anidada, mostrando cada fila como un paciente.
+
+    Para cada paciente se imprime:
+    - Número de historia clínica
+    - Nombre
+    - Edad
+    - Diagnóstico
+    - Cantidad de días hospitalizado'''
     print("\nLista de pacientes:")
     for paciente in lista_pacientes:
         print("Numero historial clinica:", paciente[0])
@@ -30,7 +50,7 @@ def imprimir_pacientes(lista_pacientes):
 
 
 def buscar_paciente(lista_pacientes):
-    historia = input("Ingrese el número de historia clínica (DNI) a buscar: ")
+    historia = input("Ingrese el número de historia clínica a buscar: ")
 
     encontrado = False
     for paciente in lista_pacientes:
@@ -49,7 +69,12 @@ def buscar_paciente(lista_pacientes):
 
 
 def ordenar_forma_ascendente(lista_pacientes):
-    
+    '''"""
+    Ordena la lista de pacientes de forma ascendente según el número de historia clínica.
+
+    Utiliza el método de ordenamiento burbuja (bubble sort) para reorganizar
+    las sublistas de pacientes en función del primer elemento de cada sublista,
+    que corresponde al número de historia clínica.'''
     longitud = len(lista_pacientes)
 
     for i in range(longitud):
